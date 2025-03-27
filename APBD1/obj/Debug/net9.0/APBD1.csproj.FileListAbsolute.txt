@@ -1,0 +1,14 @@
+C:\Users\frane\RiderProjects\APBD1\APBD1\bin\Debug\net9.0\APBD1.exe
+C:\Users\frane\RiderProjects\APBD1\APBD1\bin\Debug\net9.0\APBD1.deps.json
+C:\Users\frane\RiderProjects\APBD1\APBD1\bin\Debug\net9.0\APBD1.runtimeconfig.json
+C:\Users\frane\RiderProjects\APBD1\APBD1\bin\Debug\net9.0\APBD1.dll
+C:\Users\frane\RiderProjects\APBD1\APBD1\bin\Debug\net9.0\APBD1.pdb
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\APBD1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\APBD1.AssemblyInfoInputs.cache
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\APBD1.AssemblyInfo.cs
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\APBD1.csproj.CoreCompileInputs.cache
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\APBD1.dll
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\refint\APBD1.dll
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\APBD1.pdb
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\APBD1.genruntimeconfig.cache
+C:\Users\frane\RiderProjects\APBD1\APBD1\obj\Debug\net9.0\ref\APBD1.dll

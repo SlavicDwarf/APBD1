@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-public class PrzekroczonyLimitException : Exception
+﻿public class PrzekroczonyLimitException : Exception
 {
     public PrzekroczonyLimitException(string wiadomosc) : base(wiadomosc) { }
 }
@@ -55,14 +51,14 @@ public abstract class Kontener
         MasaLadunku = masa;
     }
 
-    public double PodajCalkowitaWage()
+    public double PodajWage()
     {
         return WagaWlasna + MasaLadunku;
     }
 
     public override string ToString()
     {
-        return $"Kontener {NumerSeryjny}: {GetType().Name}, Produkt: {TypProduktu}, Ładunek: {MasaLadunku}kg, Waga całkowita: {PodajCalkowitaWage()}kg";
+        return $"Kontener {NumerSeryjny}: {GetType().Name}, Produkt: {TypProduktu}, Ładunek: {MasaLadunku}kg, Waga całkowita: {PodajWage()}kg";
     }
 }
 
@@ -194,7 +190,7 @@ public class StatekKontenerowy
             throw new InvalidOperationException("Statek jest pełny");
         }
 
-        double calkowitaWaga = Kontenery.Sum(k => k.PodajCalkowitaWage()) + kontener.PodajCalkowitaWage();
+        double calkowitaWaga = Kontenery.Sum(k => k.PodajWage()) + kontener.PodajWage();
         if (calkowitaWaga > MaksWaga * 1000)
         {
             throw new PrzekroczonyLimitException($"Przekroczono maksymalną wagę statku {MaksWaga} ton");
@@ -296,7 +292,7 @@ public class StatekKontenerowy
     public void WypiszInfoStatku()
     {
         Console.WriteLine($"Informacje o statku - Prędkość: {MaksPredkosc} węzłów, Maks kontenerów: {MaksLiczbaKontenerow}, Maks waga: {MaksWaga} ton");
-        Console.WriteLine($"Aktualne obciążenie: {Kontenery.Count} kontenerów, Waga całkowita: {Kontenery.Sum(k => k.PodajCalkowitaWage()) / 1000} ton");
+        Console.WriteLine($"Aktualne obciążenie: {Kontenery.Count} kontenerów, Waga całkowita: {Kontenery.Sum(k => k.PodajWage()) / 1000} ton");
         Console.WriteLine("Kontenery na statku:");
         foreach (var k in Kontenery)
         {
@@ -356,7 +352,7 @@ class Program
             statek2.WypiszInfoStatku();
 
             var nowyKontenerChlodniczy = new KontenerChlodniczy(220, 600, 120, 2500, 15);
-            nowyKontenerChlodniczy.Zaladuj(1800, "Czekolada");
+            nowyKontenerChlodniczy.Zaladuj(1375, "Lody");
             statek1.ZamienKontener(kontenerChlodniczy.NumerSeryjny, nowyKontenerChlodniczy);
 
             Console.WriteLine("\nPo zamianie:");

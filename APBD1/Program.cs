@@ -150,18 +150,18 @@ public class KontenerChlodniczy : Kontener
     {
         if (!TemperaturyProduktow.ContainsKey(typProduktu))
         {
-            throw new ArgumentException($"Nieznany produkt dla kontenera chłodniczego: {typProduktu}");
+            throw new ArgumentException($"Nieznany produkt: {typProduktu}");
         }
 
         double wymaganaTemperatura = TemperaturyProduktow[typProduktu];
         if (Temperatura < wymaganaTemperatura)
         {
-            throw new InvalidOperationException($"Temperatura {Temperatura}°C jest za niska dla {typProduktu} (wymagana {wymaganaTemperatura}°C)");
+            throw new InvalidOperationException($"Temperatura {Temperatura}C za niska dla {typProduktu} (wymagana {wymaganaTemperatura}C)");
         }
 
         if (masa > MaksLadownosc)
         {
-            throw new PrzekroczonyLimitException($"Nie można załadować {masa}kg do kontenera chłodniczego. Maksymalnie: {MaksLadownosc}kg");
+            throw new PrzekroczonyLimitException($"Waga przekroczona o {masa}kg. Maksymalnie: {MaksLadownosc}kg");
         }
 
         base.Zaladuj(masa, typProduktu);
@@ -187,13 +187,13 @@ public class StatekKontenerowy
     {
         if (Kontenery.Count >= MaksLiczbaKontenerow)
         {
-            throw new InvalidOperationException("Statek jest pełny");
+            throw new InvalidOperationException("Statek pełny");
         }
 
         double calkowitaWaga = Kontenery.Sum(k => k.PodajWage()) + kontener.PodajWage();
         if (calkowitaWaga > MaksWaga * 1000)
         {
-            throw new PrzekroczonyLimitException($"Przekroczono maksymalną wagę statku {MaksWaga} ton");
+            throw new PrzekroczonyLimitException($"Przekroczono wagę: {MaksWaga} ton");
         }
 
         Kontenery.Add(kontener);
@@ -216,7 +216,7 @@ public class StatekKontenerowy
         }
         else
         {
-            throw new ArgumentException($"Nie znaleziono kontenera o numerze {numerSeryjny}");
+            throw new ArgumentException($"Brak kontenera: {numerSeryjny}");
         }
     }
 
@@ -229,7 +229,7 @@ public class StatekKontenerowy
         }
         else
         {
-            throw new ArgumentException($"Nie znaleziono kontenera o numerze {numerSeryjny}");
+            throw new ArgumentException($"Brak kontenera:  {numerSeryjny}");
         }
     }
 
@@ -253,7 +253,7 @@ public class StatekKontenerowy
         }
         else
         {
-            throw new ArgumentException($"Nie znaleziono kontenera o numerze {numerSeryjny}");
+            throw new ArgumentException($"Brak kontenera:  {numerSeryjny}");
         }
     }
 
@@ -262,7 +262,7 @@ public class StatekKontenerowy
         var kontener = zStatku.Kontenery.FirstOrDefault(k => k.NumerSeryjny == numerSeryjny);
         if (kontener == null)
         {
-            throw new ArgumentException($"Nie znaleziono kontenera o numerze {numerSeryjny} na statku źródłowym");
+            throw new ArgumentException($"Brak kontenera: {numerSeryjny}");
         }
 
         try
@@ -285,7 +285,7 @@ public class StatekKontenerowy
         }
         else
         {
-            Console.WriteLine($"Nie znaleziono kontenera {numerSeryjny}");
+            Console.WriteLine($"Brak kontenera:  {numerSeryjny}");
         }
     }
 
@@ -364,7 +364,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Wystąpił błąd: {ex.Message}");
+            Console.WriteLine($"Błąd: {ex.Message}");
         }
     }
 }
